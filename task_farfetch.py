@@ -53,8 +53,7 @@ def fetch_data(url):
             google_category = gpc(link, title)
 
             ActionChains(driver).move_to_element(price_element).perform()
-            time.sleep(0.2)
-            # wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'p[data-component="ProductCardSizesAvailable"]')))
+            wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'p[data-component="ProductCardSizesAvailable"]')))
 
             sizes_available_element = product.find_element(By.CSS_SELECTOR, 'p[data-component="ProductCardSizesAvailable"]')
             sizes_available = sizes_available_element.text
@@ -62,7 +61,6 @@ def fetch_data(url):
 
             sizes_element = product.find_element(By.CSS_SELECTOR, 'p[data-component="ProductCardSizesAvailable"]')
             sizes_available = sizes_element.text.strip() if sizes_element else "No sizes available"
-            print(sizes_available)
 
 
             
